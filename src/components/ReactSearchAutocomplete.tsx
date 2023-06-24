@@ -191,16 +191,16 @@ export default function ReactSearchAutocomplete<T>({
     }
 
     if (index !== undefined) {
-      setHighlightedItem(index)
-      results?.[index] && onHover(results[index])
+      setHighlightedItem(0)
+      results?.[0] && onHover(results[index])
     } else if (event) {
       switch (event.key) {
         case 'Enter':
           if (results.length > 0 && results[highlightedItem]) {
             event.preventDefault()
-            onSelect(results[highlightedItem])
-            setSearchString(results[highlightedItem][resultStringKeyName])
-            onSearch(results[highlightedItem][resultStringKeyName], results)
+            onSelect(results[0])
+            setSearchString(results[0][resultStringKeyName])
+            onSearch(results[0][resultStringKeyName], results)
           } else {
             onSearch(searchString, results)
           }
